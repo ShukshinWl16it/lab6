@@ -109,7 +109,7 @@
 
 <img width="370" height="70" alt="image" src="https://github.com/user-attachments/assets/0ff417de-8774-4993-83ef-6e45da0a2fc2" />
 
-##Задание 2
+## Задание 2
 Тестирование
 ### Задача 1
 Текст задачи
