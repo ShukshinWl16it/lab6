@@ -1,17 +1,23 @@
 package shukshin.classes;
 
 import shukshin.annotations.Validate;
-
-// Класс с пустым массивом в аннотации @Validate
+/**
+ * Класс пользователя с пустым массивом валидации.
+ * Демонстрирует использование аннотации @Validate с пустым массивом классов.
+ *
+ * @see Validate
+ */
 @Validate({})
 public class EmptyValidateUser {
+    /** Имя пользователя */
     private String username;
 
+    /**
+     * Создает пользователя с указанным именем.
+     *
+     * @param username имя пользователя
+     */
     public EmptyValidateUser(String username) {
         this.username = username;
-    }
-
-    public String getUsername() {
-        return username;
     }
 }

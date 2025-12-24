@@ -9,11 +9,45 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import static org.junit.Assert.*;
 
+/**
+ * Тестовый класс для проверки работы аннотации @Validate и соответствующего
+ * обработчика ValidateReflection.
+ * Содержит тесты для проверки корректности извлечения и обработки типов валидации,
+ * а также обработки различных сценариев (пустой массив, отсутствие аннотации).
+ *
+ * Класс проверяет следующие аспекты:
+ * <ul>
+ *   <li>Корректное извлечение типов из аннотации @Validate</li>
+ *   <li>Правильный формат вывода информации о типах валидации</li>
+ *   <li>Обработку пустого массива типов валидации</li>
+ *   <li>Обработку отсутствия аннотации @Validate</li>
+ *   <li>Сообщения исключений в различных сценариях</li>
+ * </ul>
+ *
+ * @see Validate
+ * @see ValidateReflection
+ * @see User
+ * @see EmptyValidateUser
+ */
 public class testValidate {
 
     /**
      * Тест проверяет корректное извлечение типов из аннотации @Validate
-     * и их вывод методом showValidate
+     * и их вывод методом ValidateReflection#showValidate(Object).
+     * Класс User имеет аннотацию {@code @Validate({String.class, Integer.class, Boolean.class})},
+     * поэтому метод должен вывести все три типа.
+     *
+     * <p>Проверяемые условия:</p>
+     * <ol>
+     *   <li>Вывод содержит String.class</li>
+     *   <li>Вывод содержит Integer.class</li>
+     *   <li>Вывод содержит Boolean.class</li>
+     *   <li>Вывод содержит заголовок "Типы для валидации:"</li>
+     * </ol>
+     *
+     * Метод использует перенаправление System.out для проверки вывода в консоль.
+     *
+     * @throws AssertionError если вывод не содержит ожидаемые типы
      */
     @Test
     public void testShowValidateWithCorrectTypes() {
@@ -42,8 +76,19 @@ public class testValidate {
 
     /**
      * Тест проверяет, что при пустом массиве в аннотации @Validate
-     * выбрасывается исключение IllegalArgumentException
-     * Используем параметр expected
+     * выбрасывается исключение IllegalArgumentException.
+     * Класс EmptyValidateUser имеет аннотацию {@code @Validate({})}
+     * с пустым массивом типов.
+     * Проверяемое условие:
+     * <ol>
+     *   <li>При вызове showValidate() с объектом EmptyValidateUser должно быть
+     *       выброшено IllegalArgumentException</li>
+     * </ol>
+     *
+     * Используется параметр {@code expected} аннотации {@code @Test}
+     * для проверки типа исключения.
+     *
+     * @throws IllegalArgumentException ожидаемое исключение при пустом массиве валидации
      */
     @Test(expected = IllegalArgumentException.class)
     public void testShowValidateWithEmptyArrayThrowsException() {
@@ -52,10 +97,19 @@ public class testValidate {
     }
 
     /**
-     * Тест проверяет сообщение исключения при пустом массиве
+     * Тест проверяет конкретное сообщение исключения при пустом массиве типов валидации.
+     * Проверяемые условия:
+     * <ol>
+     *   <li>При пустом массиве типов выбрасывается IllegalArgumentException</li>
+     *   <li>Сообщение исключения равно "Массив типов для валидации пустой."</li>
+     * </ol>
+     *
+     * Этот тест проверяет не только тип исключения, но и его сообщение.
+     *
+     * @throws AssertionError если исключение не выбрасывается или имеет неверное сообщение
      */
     @Test
-    public void testShowValidateEmptyArrayExceptionMessage() {
+    public void testShowValidateEmptyArrayMessage() {
         try {
             EmptyValidateUser user = new EmptyValidateUser("test");
             ValidateReflection.showValidate(user);
@@ -65,6 +119,21 @@ public class testValidate {
         }
     }
 
+    /**
+     * Тест проверяет, что при отсутствии аннотации @Validate у класса
+     * выбрасывается исключение IllegalArgumentException.
+     * Создается локальный класс без аннотации @Validate для проверки этого сценария.
+     *Проверяемое условие:
+     * <ol>
+     *   <li>При вызове showValidate() с объектом без аннотации @Validate должно быть
+     *       выброшено IllegalArgumentException</li>
+     * </ol>
+     *
+     * Используется параметр {@code expected} аннотации {@code @Test}
+     * для проверки типа исключения.
+     *
+     * @throws IllegalArgumentException ожидаемое исключение при отсутствии аннотации
+     */
     @Test(expected = IllegalArgumentException.class)
     public void testShowValidateWithoutAnnotation() {
         // Создаем тестовый класс без аннотации @Validate

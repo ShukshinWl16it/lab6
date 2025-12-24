@@ -7,13 +7,12 @@ import shukshin.annotations.Two;
 public class TwoReflection {
     /**
      * Отображает значения свойств first и second из аннотации @Two.
-     * <p>
      * Метод получает аннотацию @Two у класса объекта
      * и выводит значения строкового и числового свойств.
-     * </p>
      *
      * @param object объект для обработки
      * @throws IllegalArgumentException если аннотация не найдена
+     * @see Two
      */
     public static void showTwo(Object object) {
         Class<?> myClass = object.getClass();

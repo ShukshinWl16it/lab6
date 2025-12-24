@@ -1,17 +1,16 @@
 package shukshin.reflection;
 import shukshin.annotations.ToString;
 import java.lang.reflect.Field;
-
+/**
+ * Обработчик аннотации @ToString
+ * Формирует строковое представление объекта на основе аннотаций.
+ */
 public class ToStringReflection {
     /**
-     * Обработчик аннотации @ToString.
-     * Формирует строковое представление объекта.
-     */
-    /**
-     * Создает строковое представление объекта на основе аннотаций @ToString.
-     *
+     * Включает только те поля, которые помечены как Mode.YES или не имеют аннотации.
      * @param object объект для обработки
      * @return строковое представление
+     * @see ToString
      */
     public static String generateToString(Object object){
         StringBuilder result = new StringBuilder();
