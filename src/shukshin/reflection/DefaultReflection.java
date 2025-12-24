@@ -16,8 +16,8 @@ public class DefaultReflection {
      * @throws IllegalArgumentException если аннотация не найдена
      */
     public static void showDefault(Object object) {
-        Class<?> clazz = object.getClass();
-        Default annotation = clazz.getAnnotation(Default.class);
+        Class<?> myClass = object.getClass();
+        Default annotation = myClass.getAnnotation(Default.class);
         if (annotation == null) {
             throw new IllegalArgumentException("Аннотация @Default не найдена.");
         }

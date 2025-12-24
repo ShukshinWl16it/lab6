@@ -19,14 +19,21 @@ public class ValidateReflection {
  * @throws IllegalArgumentException если аннотация @Validate не найдена у класса
  */
     public static void showValidate(Object object) {
-        Class<?> clazz = object.getClass();
-        Validate annotation = clazz.getAnnotation(Validate.class);
+        Class<?> myClass = object.getClass();
+        Validate annotation = myClass.getAnnotation(Validate.class);
 
         if (annotation == null) {
             throw new IllegalArgumentException("Аннотация @Validate не найдена.");
         }
 
         Class<?>[] types = annotation.value();
-        System.out.println("Типы для валидации: " + Arrays.toString(types));
+        if (types.length == 0) {
+            throw new IllegalArgumentException("Массив типов для валидации пустой.");
+        }
+
+        System.out.println("Типы для валидации:");
+        for (Class <?> current : types) {
+            System.out.println(current.getSimpleName()+ ".class");
+        }
     }
 }

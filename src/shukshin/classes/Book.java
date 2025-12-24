@@ -23,4 +23,20 @@ public class Book {
         this.price = price;
         this.stock = stock;
     }
+    @Override
+    public String toString() {
+        // Простая реализация без рефлексии, но с учетом аннотаций
+        StringBuilder sb = new StringBuilder();
+        sb.append("Book[");
+
+        // Поля без аннотации или с @ToString(Mode.YES) включаем
+        sb.append("title='").append(title).append(", ");
+        sb.append("author='").append(author).append(", ");
+        sb.append("price=").append(price);
+
+        // Поле stock с @ToString(Mode.NO) не включаем
+
+        sb.append("]");
+        return sb.toString();
+    }
 }

@@ -82,6 +82,7 @@ public class Main {
                     }
                     break;
                 case 7:
+                    System.out.println("Запустите тест testToString в пакете test");
                     break;
                 case 8:
                     break;

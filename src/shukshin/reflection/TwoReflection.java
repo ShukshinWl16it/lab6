@@ -16,8 +16,8 @@ public class TwoReflection {
      * @throws IllegalArgumentException если аннотация не найдена
      */
     public static void showTwo(Object object) {
-        Class<?> clazz = object.getClass();
-        Two annotation = clazz.getAnnotation(Two.class);
+        Class<?> myClass = object.getClass();
+        Two annotation = myClass.getAnnotation(Two.class);
         if (annotation == null) {
             throw new IllegalArgumentException("Аннотация @Two не найдена.");
         }

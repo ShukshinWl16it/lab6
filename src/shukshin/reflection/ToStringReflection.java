@@ -15,11 +15,11 @@ public class ToStringReflection {
      */
     public static String generateToString(Object object){
         StringBuilder result = new StringBuilder();
-        Class<?> clazz = object.getClass();
+        Class<?> myClass = object.getClass();
 
-        result.append(clazz.getSimpleName()).append("{");
+        result.append(myClass.getSimpleName()).append("{");
 
-        Field[] fields = clazz.getDeclaredFields();
+        Field[] fields = myClass.getDeclaredFields();
         for (int i = 0; i < fields.length; i++) {
             Field field = fields[i];
             field.setAccessible(true);
