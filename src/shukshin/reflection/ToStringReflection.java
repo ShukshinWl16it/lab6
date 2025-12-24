@@ -10,7 +10,6 @@ public class ToStringReflection {
      * Включает только те поля, которые помечены как Mode.YES или не имеют аннотации.
      * @param object объект для обработки
      * @return строковое представление
-     * @see ToString
      */
     public static String generateToString(Object object){
         StringBuilder result = new StringBuilder();

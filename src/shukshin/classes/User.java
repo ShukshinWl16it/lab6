@@ -7,10 +7,6 @@ import shukshin.annotations.ToString;
  * Класс пользователя системы.
  * Демонстрирует использование нескольких аннотаций одновременно:
  * @Validate, @Cache и @ToString
- *
- * @see Validate
- * @see Cache
- * @see ToString
  */
 @Validate({String.class, Integer.class, Boolean.class})
 @Cache({"users", "profiles", "auth"})

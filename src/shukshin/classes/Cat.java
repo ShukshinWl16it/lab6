@@ -6,14 +6,16 @@ import shukshin.annotations.Two;
 /**
  * Класс, представляющий кота.
  * Демонстрирует использование аннотаций @Two и @Invoke
- *
- * @see Two
- * @see Invoke
  */
+
 @Two(first = "Орешек", second = 1)
 public class Cat {
     /** Имя кота */
     private final String name;
+
+    public Cat() {
+        this.name = "Стандартный кот";
+    }
 
     /**
      * Создает кота с указанным именем.

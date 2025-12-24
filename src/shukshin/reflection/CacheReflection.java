@@ -13,7 +13,6 @@ public class CacheReflection {
      *
      * @param object Объект, класс которого должен быть проверен на наличие аннотации @Cache
      * @throws IllegalArgumentException если аннотация @Cache не найдена у класса объекта
-     * @see Cache
      */
     public static void showCache(Object object) {
         Class <?> myClass = object.getClass();

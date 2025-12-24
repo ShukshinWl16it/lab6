@@ -4,8 +4,6 @@ import shukshin.annotations.Validate;
 /**
  * Класс пользователя с пустым массивом валидации.
  * Демонстрирует использование аннотации @Validate с пустым массивом классов.
- *
- * @see Validate
  */
 @Validate({})
 public class EmptyValidateUser {

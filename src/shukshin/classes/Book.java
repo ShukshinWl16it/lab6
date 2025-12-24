@@ -5,9 +5,6 @@ import shukshin.annotations.ToString;
  * Класс, представляющий книгу в библиотечной системе.
  * Аннотирован с помощью @Default и @ToString для демонстрации
  * работы с пользовательскими аннотациями.
- *
- * @see Default
- * @see ToString
  */
 @Default(String.class)
 @ToString

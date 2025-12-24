@@ -13,7 +13,6 @@ public class ValidateReflection {
  *
  * @param object объект для анализа
  * @throws IllegalArgumentException если аннотация @Validate не найдена у класса
- * @see Validate
  */
     public static void showValidate(Object object) {
         Class<?> myClass = object.getClass();

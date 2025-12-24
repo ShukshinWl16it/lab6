@@ -13,7 +13,6 @@ public class InvokeReflection {
      *
      * @param object объект, методы которого нужно вызвать
      * @throws IllegalArgumentException если не найдено ни одного метода с аннотацией @Invoke
-     * @see Invoke
      */
     public static void showInvoke(Object object) {
         Class<?> myClass = object.getClass();

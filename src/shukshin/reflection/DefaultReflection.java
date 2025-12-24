@@ -12,7 +12,6 @@ public class DefaultReflection {
      *
      * @param object объект для обработки
      * @throws IllegalArgumentException если аннотация @Default не найдена
-     * @see Default
      */
     public static void showDefault(Object object) {
         Class<?> myClass = object.getClass();
